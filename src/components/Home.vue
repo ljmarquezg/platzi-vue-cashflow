@@ -7,7 +7,11 @@
 
     <!-- Resume component -->
     <template #resume>
-      <ResumeComponent />
+      <ResumeComponent
+        :label="'Ahorro total'"
+        :amount="amount"
+        :total-amount="1000000"
+      />
     </template>
 
     <!-- Movements component -->
@@ -29,7 +33,12 @@ export default {
     LayoutComponent,
     HeaderComponent,
     ResumeComponent,
-    MovementsComponent
+    MovementsComponent,
+  },
+  data() {
+    return {
+      amount: null
+    }
   }
 };
 </script>

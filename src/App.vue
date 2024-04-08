@@ -51,5 +51,15 @@ body, html, #app {
 :root {
   --brand-green: #04b500;
   --brand-blue: #0689b0;
+  --brand-danger: #b00e2d;
+  --brand-success: #17b006;
+}
+
+.success {
+  color: var(--brand-success);
+}
+
+.danger {
+  color: var(--brand-danger);
 }
 </style>
