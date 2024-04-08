@@ -29,13 +29,16 @@ export default {
   box-sizing: border-box;
 }
 
-body, html {
+body, html, #app {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #333;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 
 .material-symbols-outlined {
@@ -48,14 +51,5 @@ body, html {
 :root {
   --brand-green: #04b500;
   --brand-blue: #0689b0;
-}
-
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 </style>
