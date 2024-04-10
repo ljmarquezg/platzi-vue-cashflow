@@ -57,7 +57,7 @@ const showMovements = ref(false);
   bottom: 0;
   width: 100vw;
   background-color: white;
-  box-shadow: 0 -8px 16px #e5e5e5;
+  box-shadow: 0 -8px 16px var(--light-background-color);
   border-radius: 24px;
 
   .head {
