@@ -73,6 +73,9 @@ body, html, #app {
   color: var(--muted-color) !important;
 }
 
+.text-right {
+  text-align: right;
+}
 
 button {
   border-radius: 50px;
@@ -96,6 +99,12 @@ button {
     font-size: 1rem;
     text-decoration: underline;
     cursor: pointer;
+  }
+
+  &.filled {
+    background: var(--brand-blue);
+    color: white;
+    font-weight: bold;
   }
 }
 </style>

@@ -19,7 +19,7 @@
 
         <!-- Action section -->
         <template #action>
-          <button @click="console.log('test')">Añadir movimiento</button>
+          <ActionComponent />
         </template>
       </ResumeIndex>
     </template>
@@ -38,10 +38,12 @@ import LayoutComponent from "@/components/LayoutComponent.vue";
 import HeaderComponent from "@/components/Header.vue";
 import ResumeIndex from "@/components/Resume/ResumeIndex.vue";
 import MovementsComponent from "@/components/Movements/MovementsIndex.vue";
+import ActionComponent from "@/components/ActionComponent.vue";
 
 export default {
   name: "HomeComponent",
   components: {
+    ActionComponent,
     LayoutComponent,
     HeaderComponent,
     ResumeIndex,
