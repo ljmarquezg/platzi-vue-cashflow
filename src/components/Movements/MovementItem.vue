@@ -42,7 +42,7 @@
 <script setup>
 import { defineProps, toRefs, defineEmits } from "vue";
 import MovementsDefinition from "@/components/Movements/MovementsDefinition";
-import CurrencyFormatComponent from "@/components/CurrencyFormatComponent.vue";
+import CurrencyFormatComponent from "@/components/shared/CurrencyFormatComponent.vue";
 
 const props = defineProps({
   movement: {

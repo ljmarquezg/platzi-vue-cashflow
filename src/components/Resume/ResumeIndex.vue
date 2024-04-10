@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import CurrencyFormatComponent from "@/components/CurrencyFormatComponent.vue";
+import CurrencyFormatComponent from "@/components/shared/CurrencyFormatComponent.vue";
 
 export default {
   name: "ResumeIndex",
