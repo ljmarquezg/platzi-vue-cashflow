@@ -40,7 +40,8 @@
 </template>
 
 <script setup>
-import { defineProps, toRefs, defineEmits } from "vue";
+import moment from "moment";
+import { computed, defineProps, toRefs, defineEmits } from "vue";
 import MovementsDefinition from "@/components/Movements/MovementsDefinition";
 import CurrencyFormatComponent from "@/components/shared/CurrencyFormatComponent.vue";
 
@@ -52,9 +53,12 @@ const props = defineProps({
   }
 });
 
-const { id, title, date, description, amount } = toRefs(props.movement);
+const { id, title, time, description, amount } = toRefs(props.movement);
 const emit = defineEmits(["removeItem"]);
 
+const date = computed(() => {
+  return moment(String(time.value)).format('DD MMM YYYY')
+});
 const removeItem = () => {
   emit("removeItem", id.value);
 };
