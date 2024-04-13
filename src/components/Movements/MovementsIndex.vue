@@ -5,21 +5,22 @@
 
     <!-- Content -->
     <ul class="content">
-        <MovementItem
-          v-for="movement in movements"
-          :movement="movement"
-          :key="movement.id"
-          @removeItem="removeItem"
-        />
+      <MovementItem
+        v-for="movement in movements"
+        :movement="movement"
+        :key="movement.id"
+        @removeItem="removeItem"
+      />
     </ul>
   </div>
 </template>
 
 <script setup>
-import { defineProps, toRefs } from "vue";
+import { defineEmits, defineProps, toRefs } from "vue";
 import MovementItem from "@/components/Movements/MovementItem.vue";
 import MovementsDefinition from "@/components/Movements/MovementsDefinition";
 
+const emit = defineEmits(["removeItem"]);
 const props = defineProps({
   movements: {
     type: [MovementsDefinition],
@@ -29,7 +30,7 @@ const props = defineProps({
 
 const { movements } = toRefs(props);
 const removeItem = (id) => {
-  console.log(id);
+  emit("removeItem", id);
 };
 
 </script>

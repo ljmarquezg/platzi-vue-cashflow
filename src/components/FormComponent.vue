@@ -81,7 +81,7 @@
 <script setup>
 import { defineEmits, ref } from "vue";
 
-const emit = defineEmits(["closeViewModalMovement"]);
+const emit = defineEmits(["closeViewModalMovement", "create"]);
 // Form Inputs
 const title = ref("");
 const amount = ref(0);
@@ -89,8 +89,14 @@ const description = ref("");
 const movementsType = ref("Ingreso");
 
 const addMovement = () => {
-  console.log("addMovement");
-  closeModal();
+  emit("create", {
+    title: title.value,
+    amount: movementsType.value === "Ingreso" ? amount.value : -amount.value,
+    description: description.value,
+    type: movementsType.value,
+    time: new Date(),
+    id: Math.random().toString(36)
+  });
 };
 
 const closeModal = () => emit("closeViewModalMovement");
