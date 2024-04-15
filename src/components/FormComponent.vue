@@ -97,6 +97,10 @@ const addMovement = () => {
     time: new Date(),
     id: Math.random().toString(36)
   });
+  title.value = "";
+  amount.value = 0;
+  description.value = "";
+  movementsType.value = "Ingreso";
 };
 
 const closeModal = () => emit("closeViewModalMovement");
