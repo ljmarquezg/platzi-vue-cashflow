@@ -10,12 +10,13 @@
       <ResumeIndex
         :label="'Ahorro total'"
         :amount="amount"
-        :total-amount="1000000"
+        :total-amount="totalAmount"
       >
         <!-- Graphic section -->
         <template #graphic>
           <GraphicComponent
             :amounts="amounts"
+            @select="select"
           />
         </template>
 
@@ -60,36 +61,7 @@ export default {
     return {
       label: null,
       amount: null,
-      movements: [
-        {
-          id: "0003",
-          time: new Date("2024-04-01"),
-          title: "Ingreso de nómina",
-          description: "Ingreso de nómina mes de marzo",
-          amount: 100
-        },
-        {
-          id: "0004",
-          time: new Date("2024-04-02"),
-          title: "Ingreso de nómina",
-          description: "Ingreso de nómina mes de abril",
-          amount: 100
-        },
-        {
-          id: "0003",
-          time: new Date("2024-04-03"),
-          title: "Ingreso de nómina",
-          description: "Ingreso de nómina mes de mayo",
-          amount: -100
-        },
-        {
-          id: "0006",
-          time: new Date("2024-04-03"),
-          title: "Ingreso de nómina",
-          description: "Ingreso de nómina mes de junio",
-          amount: 100
-        }
-      ]
+      movements: []
     };
   },
   computed: {
@@ -109,14 +81,36 @@ export default {
           return suma + movement;
         }, 0);
       });
+    },
+    totalAmount() {
+      return this.movements.reduce((suma, movement) => {
+        return suma + movement.amount;
+      }, 0);
     }
   },
   methods: {
     updateMovements(movement) {
       this.movements.push(movement);
+      this.save();
     },
     removeItem(id) {
       this.movements = this.movements.filter(movement => movement.id !== id);
+      this.save();
+    },
+    save() {
+      localStorage.setItem("movements", JSON.stringify(this.movements));
+    },
+    select(value){
+      this.amount = value;
+    }
+  },
+  mounted() {
+    const movements = JSON.parse(localStorage.getItem("movements"));
+
+    if (Array.isArray(movements)) {
+      this.movements = movements.map(movement => {
+        return { ...movement, time: new Date(movement.time) };
+      });
     }
   }
 };
